@@ -1,0 +1,12 @@
+jboss-as-distribution-6.1.0.Final.zip
+jboss/LICENSE.txt
+jboss/bin
+jboss/client
+jboss/common
+jboss/copyright.txt
+jboss/docs
+jboss/jar-versions.xml
+jboss/lib
+jboss/server
+tmp
+jboss_*
