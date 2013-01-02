@@ -1,0 +1,12 @@
+jboss for Debian
+----------------
+
+This is a rough first version based on previous packages and the packaging
+attempts by the debian folks
+
+TO DO:
+- permissions should be changed so all read-only files/dirs are owned by root
+- logging is not optimal needs to be improved
+
+
+ -- Peter Tillemans <pti@unknown>  Thu, 25 Aug 2011 13:14:56 +0200

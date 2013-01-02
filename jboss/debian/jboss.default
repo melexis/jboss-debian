@@ -1,0 +1,21 @@
+# Defaults for jboss initscript
+# sourced by /etc/init.d/jboss
+# installed at /etc/default/jboss by the maintainer scripts
+
+#
+# This is a POSIX shell fragment
+#
+
+# Additional options that are passed to the Daemon.
+DAEMON_OPTS=""
+
+
+JAVA_OPTS="-Xmx1024M -Xms1024M -XX:PermSize=128m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled" 
+export JAVA_OPTS
+
+# Profile that gets loaded. Must be set.
+# Possible values are "minimal", "default", "web", "standard" and "all".
+JBOSS_SERVER="default"
+
+# Uncomment to enable the JBoss Application Server 5
+RUN="yes"

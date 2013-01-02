@@ -1,0 +1,45 @@
+Description: Patch for jboss-6.1.0
+    * bumped to version 6.1.0
+Author: Peter Tillemans <pti@melexis.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- /dev/null
++++ jboss-6.1.0-Final/Makefile
+@@ -0,0 +1,25 @@
++VERSION=6.1.0
++
++DEST=debian/jboss/var/lib/jboss
++
++all:
++
++	# clean runtime stuff
++	find server -name log -exec rm -rf {} \;
++	find server -name data -exec rm -rf {} \;
++	find server -name tmp -exec rm -rf {} \;
++
++  # remove ROOT.war
++	find server -name ROOT.war -exec rm -rf {} \;
++
++	true
++
++clean:
++
++install:
++	cp -r lib ${DEST}
++	cp -r jar-versions.xml ${DEST}
++	cp -r client ${DEST}
++	cp -r server ${DEST}
++	cp -r bin ${DEST}
++	cp -r common ${DEST}
