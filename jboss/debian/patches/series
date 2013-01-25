@@ -1,2 +1,2 @@
-jboss-6.1.0.Final-1
-fix-remove-root-war
+add_deployer.diff
+add_makefile.diff

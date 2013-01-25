@@ -1,6 +1,6 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Name: jboss
-Source: <url://example.com>
+Source: <http://www.redhat.com>
 
 Files: *
 Copyright: 2011 Redhat
@@ -21,8 +21,6 @@ License: GPL-2+
  On Debian systems, the complete text of the GNU General
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
 
-# If you want to use GPL v2 or later for the /debian/* files use
-# the following clauses, or change it to suit. Delete these two lines
 Files: debian/*
 Copyright: 2011 Peter Tillemans <pti@unknown>
 License: GPL-2+
@@ -41,6 +39,3 @@ License: GPL-2+
  .
  On Debian systems, the complete text of the GNU General
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
-
-# Please also look if there are files or directories which have a
-# different copyright/license attached and list them here.
