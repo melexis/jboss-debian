@@ -1,0 +1,32 @@
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,29 @@
++VERSION=6.1.0
++
++DEST=debian/jboss/var/lib/jboss
++
++all:
++
++	# clean runtime stuff
++	find server -name log -exec rm -rf {} \;
++	find server -name data -exec rm -rf {} \;
++	find server -name tmp -exec rm -rf {} \;
++
++  # remove ROOT.war
++	find server -name ROOT.war -exec rm -rf {} \; -prune
++
++	# link jboss undeploy
++	ln -s jboss-deploy usr/bin/jboss-undeploy
++
++	true
++
++clean:
++
++install:
++	cp -r lib ${DEST}
++	cp -r jar-versions.xml ${DEST}
++	cp -r client ${DEST}
++	cp -r server ${DEST}
++	cp -r bin ${DEST}
++	cp -r common ${DEST}
++ cp -r usr ${DEST}

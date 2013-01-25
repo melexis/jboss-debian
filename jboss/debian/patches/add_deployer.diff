@@ -1,0 +1,74 @@
+--- /dev/null
++++ b/usr/bin/jboss-deploy
+@@ -0,0 +1,71 @@
++#!/bin/bash
++
++
++JBOSS_HOME=/var/lib/jboss/server/default
++DEPLOY_DIR=$JBOSS_HOME/deploy
++DOWNLOAD_DIR=$JBOSS_HOME/tmp
++
++
++ARTIFACT=$1
++
++function parse-field  {
++  echo $ARTIFACT | cut -d ':' -f $1;
++}
++
++
++GROUP_ID=`parse-field 1`
++ARTIFACT_ID=`parse-field 2`
++VERSION=`parse-field 3`
++TYPE=`parse-field 4`
++
++echo --------
++echo groupId    : $GROUP_ID
++echo artifactId : $ARTIFACT_ID
++echo version    : $VERSION
++echo type       : $TYPE
++
++TARGET=$DEPLOY_DIR/$ARTIFACT_ID.$TYPE
++
++echo --------
++echo target:$TARGET
++echo --------
++
++if [ `echo $VERSION | grep SNAPSHOT` ]
++then
++  REPO=snapshots
++else
++  REPO=releases
++fi
++
++BASE_URL=http://nexus.colo.elex.be:8081/nexus/service/local/artifact/maven/redirect
++URL="$BASE_URL?r=$REPO&g=$GROUP_ID&a=$ARTIFACT_ID&v=$VERSION&p=$TYPE"
++
++
++ACTION=`echo $0 | cut -d '-' -f 2`
++if [ "$ACTION" == "undeploy" ]
++then
++  echo undeploying $TARGET
++  rm -f $TARGET
++else
++  echo downloading $URL
++  echo --------
++  wget -nv -N --trust-server-names --max-redirect=2 -P $DOWNLOAD_DIR $URL
++  NEW_FILE=`ls $DOWNLOAD_DIR/$ARTIFACT_ID* | tail -n1`
++
++  # when not yet deployed or a newer version is available
++  if [ ! -e $TARGET -o $NEW_FILE -nt $TARGET ]
++  then
++    echo --------
++    echo deploying $ARTIFACT to $TARGET
++    mv $DOWNLOAD_DIR/$ARTIFACT_ID* $TARGET
++  else
++    echo --------
++    echo no deploy needed, already latest version
++  fi
++fi
++
++# clean up artifacts, but leave last one for fast redeploys
++for f in `ls $DOWNLOAD_DIR/$ARTIFACT_ID* | head -n-1`
++do
++  rm $f
++done
