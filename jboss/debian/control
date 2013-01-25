@@ -1,13 +1,15 @@
 Source: jboss
 Section: unknown
 Priority: extra
-Maintainer: Peter Tillemans <pti@unknown>
+Maintainer: Peter Tillemans <pti@snamellit.com>
 Build-Depends: debhelper (>= 7.0.15~), libaio1
 Standards-Version: 3.9.1
 Homepage: http://www.jboss.org/jbossas/downloads/
 
 Package: jboss
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libaio1
-Description: JBoss Application Server
- JBoss Application server for Melexis deployment
+Depends: ${misc:Depends}, libaio1
+Description: Java Application Server
+ This package provides a JBoss Application server for Melexis deployment.
+ This version is slightly trimmed down and comes with a utility to deploy
+ directly from a maven repository.

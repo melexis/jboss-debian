@@ -18,6 +18,7 @@ clean:
 	rm -rf $(DEST)/copyright.txt
 	rm -rf $(DEST)/jar-versions.xml
 	rm -rf $(DEST)/LICENSE.txt
+	rm -f  $(DEST)/Makefile
 
 	rm -f jboss_$(VERSION)*.build
 	rm -f jboss_$(VERSION)*.changes
@@ -26,6 +27,7 @@ clean:
 	rm -f jboss_$(VERSION)*.dsc
 
 	rm -rf tmp
+
 
 	(cd jboss; debuild clean)
 	true
@@ -42,7 +44,7 @@ jboss/jar-versions.xml: $(ORIG_TAR)
 $(ORIG_TAR): $(ZIP_FILE)
 	unzip -d tmp $(ZIP_FILE)
 	(cd tmp/jboss-6.1.0.Final; tar -czvf ../../$(ORIG_TAR) *)
-	rm -rf tmpa
+	rm -rf tmp
 
 $(ZIP_FILE):
 	wget http://download.jboss.org/jbossas/6.1/$(ZIP_FILE)
