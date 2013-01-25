@@ -1,8 +1,9 @@
-jboss (6.1.0-Final-1) UNRELEASED; urgency=low
+jboss (6.1.0-Final-4) UNRELEASED; urgency=low
 
   * bumped to version 6.1.0
+  * added deploy and undeploy scripts
 
- -- Peter Tillemans <pti@snamellit.com>  Wed, 02 Jan 2013 11:36:41 +0100
+ -- Peter Tillemans <pti@melexis.com>  Fri, 25 Jan 2013 21:14:50 +0100
 
 jboss (6.0.0.Final-3) precise; urgency=low
 
