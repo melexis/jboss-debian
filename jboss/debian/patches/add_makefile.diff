@@ -29,4 +29,4 @@
 +	cp -r server ${DEST}
 +	cp -r bin ${DEST}
 +	cp -r common ${DEST}
-+   cp -r usr ${DEST}
++	cp -r usr ${DEST}
