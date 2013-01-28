@@ -68,7 +68,7 @@
 +fi
 +
 +# clean up artifacts, but leave last one for fast redeploys
-+for f in `ls $DOWNLOAD_DIR/$ARTIFACT_ID* | head -n-1`
++for f in `ls $DOWNLOAD_DIR/$ARTIFACT_ID* 2>/dev/null | head -n-1`
 +do
 +  rm $f
 +done
