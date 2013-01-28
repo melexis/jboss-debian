@@ -5,8 +5,8 @@ ZIP_FILE=jboss-as-distribution-6.1.0.Final.zip
 DEST=jboss
 
 all: jboss/jar-versions.xml
-	(cd jboss; patch -p1 <debian/patches/add_makefile.jar)
-	(cd jboss; patch -p1 <debian/patches/add_deployer.jar)
+	(cd jboss; patch -p1 <debian/patches/add_makefile.diff)
+	(cd jboss; patch -p1 <debian/patches/add_deployer.diff)
 	(cd jboss; debuild -us -uc)
 
 clean:
