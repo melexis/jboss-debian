@@ -1,9 +1,10 @@
 --- /dev/null
 +++ b/Makefile
-@@ -0,0 +1,29 @@
+@@ -0,0 +1,31 @@
 +VERSION=6.1.0
 +
-+DEST=debian/jboss/var/lib/jboss
++DEST_ROOT=debian/jboss
++DEST=$(DEST_ROOT)/var/lib/jboss
 +
 +all:
 +
@@ -26,7 +27,9 @@
 +	cp -r server $(DEST)
 +	cp -r bin $(DEST)
 +	cp -r common $(DEST)
-+	cp -r usr $(DEST)
++	cp -r usr $(DEST_ROOT)
 +
 +	# link jboss undeploy
-+	ln -f -s jboss-deploy $(DEST)/usr/bin/jboss-undeploy
++	ln -f -s jboss-deploy $(DEST_ROOT)/usr/bin/jboss-undeploy
++
+
