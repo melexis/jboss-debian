@@ -18,6 +18,7 @@ clean:
 	rm -rf $(DEST)/copyright.txt
 	rm -rf $(DEST)/jar-versions.xml
 	rm -rf $(DEST)/LICENSE.txt
+	rm -rf $(DEST)/usr
 	rm -f  $(DEST)/Makefile
 
 	rm -f jboss_$(VERSION)*.build
