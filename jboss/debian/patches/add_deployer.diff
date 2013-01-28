@@ -52,7 +52,7 @@
 +else
 +  echo downloading $URL
 +  echo --------
-+  wget -nv -N --trust-server-names --max-redirect=2 -P $DOWNLOAD_DIR $URL
++  wget -nv -N --use-server-file-name --max-redirect=2 -P $DOWNLOAD_DIR $URL
 +  NEW_FILE=`ls $DOWNLOAD_DIR/$ARTIFACT_ID* | tail -n1`
 +
 +  # when not yet deployed or a newer version is available
