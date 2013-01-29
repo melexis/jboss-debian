@@ -1,6 +1,6 @@
 --- /dev/null
 +++ b/usr/bin/jboss-deploy
-@@ -0,0 +1,71 @@
+@@ -0,0 +1,72 @@
 +#!/bin/bash
 +
 +
@@ -61,6 +61,7 @@
 +    echo --------
 +    echo deploying $ARTIFACT to $TARGET
 +    mv $DOWNLOAD_DIR/$ARTIFACT_ID* $TARGET
++    chmod 644 $TARGET
 +  else
 +    echo --------
 +    echo no deploy needed, already latest version
