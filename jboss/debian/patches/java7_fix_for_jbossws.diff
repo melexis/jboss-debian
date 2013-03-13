@@ -1,0 +1,42 @@
+Description: fix to start jboss6 using java7
+ The lazy loading of the processor in the JMSDescriptor and WSDescriptor
+deployers does not work using Java7. An effective workaround is to use
+classic "eager" initialisation instead.
+ .
+ jboss (6.1.0-Final-5.5) stable; urgency=low
+ .
+   * Non-maintainer upload.
+   * Change deployed artifact permissions to 644
+Author: Peter Tillemans <pti@snamellit.com>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- jboss-6.1.0-Final.orig/server/default/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
++++ jboss-6.1.0-Final/server/default/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
+@@ -61,12 +61,14 @@
+
+   <!-- deployers -->
+   <bean name="WSDescriptorDeployer" class="org.jboss.webservices.integration.deployers.WSDescriptorDeployer">
+-    <incallback method="setProcessor"/>
++    <!-- <incallback method="setProcessor"/> -->
++    <property name="processor"><inject bean="WSDescriptorProcessor"/></property>
+     <incallback method="setParser"/>
+   </bean>
+
+   <bean name="JMSDescriptorDeployer" class="org.jboss.webservices.integration.deployers.JMSDescriptorDeployer">
+-    <incallback method="setProcessor"/>
++    <!-- <incallback method="setProcessor"/> -->
++    <property name="processor"><inject bean="CXFJMSDescriptorProcessor"/></property>
+     <incallback method="setParser"/>
+   </bean>

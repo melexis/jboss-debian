@@ -1,9 +1,15 @@
-jboss (6.1.0-Final-5.5) UNRELEASED; urgency=low
+jboss (6.1.0-Final-6.1) UNRELEASED; urgency=low
+
+  * added a fix to support Java7 as platform to run jboss
+
+ -- Peter Tillemans <pti@snamellit.com>  Wed, 13 Mar 2013 12:45:40 +0100
+
+jboss (6.1.0-Final-5.5) stable; urgency=low
 
   * Non-maintainer upload.
   * Change deployed artifact permissions to 644
 
- -- Peter Tillemans <pti@snamellit.com>  Tue, 29 Jan 2013 18:42:21 +0100
+ -- Peter Tillemans <pti@snamellit.com>  Mon, 04 Feb 2013 09:58:43 +0100
 
 jboss (6.1.0-Final-5.4) UNRELEASED; urgency=low
 
