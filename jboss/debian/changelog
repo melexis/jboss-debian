@@ -1,8 +1,9 @@
 jboss (6.1.0-Final-6.1) UNRELEASED; urgency=low
 
   * added a fix to support Java7 as platform to run jboss
+  * improved deploy script to use the public group, work with more wget versions and better messages
 
- -- Peter Tillemans <pti@snamellit.com>  Wed, 13 Mar 2013 12:45:40 +0100
+ -- Peter Tillemans <pti@snamellit.com>  Mon, 22 Apr 2013 15:32:50 +0200
 
 jboss (6.1.0-Final-5.5) stable; urgency=low
 

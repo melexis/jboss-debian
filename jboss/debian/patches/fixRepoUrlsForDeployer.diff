@@ -1,0 +1,66 @@
+--- a/usr/bin/jboss-deploy
++++ b/usr/bin/jboss-deploy
+@@ -5,6 +5,14 @@
+ DEPLOY_DIR=$JBOSS_HOME/deploy
+ DOWNLOAD_DIR=$JBOSS_HOME/tmp
+ 
++WGET_MINOR_VERSION=`wget -V | head -1 | cut -b 12-13`
++if [ $WGET_MINOR_VERSION -lt 12 ]
++then
++  OPT_FN="--use-server-file-name"
++else
++  OPT_FN="--trust-server-names"
++fi
++
+ 
+ ARTIFACT=$1
+ 
+@@ -32,9 +40,9 @@
+ 
+ if [ `echo $VERSION | grep SNAPSHOT` ]
+ then
+-  REPO=snapshots
++  REPO=public-snapshots
+ else
+-  REPO=releases
++  REPO=public
+ fi
+ 
+ BASE_URL=http://nexus.colo.elex.be:8081/nexus/service/local/artifact/maven/redirect
+@@ -49,19 +57,25 @@
+ else
+   echo downloading $URL
+   echo --------
+-  wget -nv -N --use-server-file-name --max-redirect=2 -P $DOWNLOAD_DIR $URL
+-  NEW_FILE=`ls $DOWNLOAD_DIR/$ARTIFACT_ID* | tail -n1`
+-
+-  # when not yet deployed or a newer version is available
+-  if [ ! -e $TARGET -o $NEW_FILE -nt $TARGET ]
++  echo wget -nv -N --max-redirect=2 -P $DOWNLOAD_DIR $URL
++  if wget -nv -N $OPT_FN --max-redirect=2 -P $DOWNLOAD_DIR $URL
+   then
+-    echo --------
+-    echo deploying $ARTIFACT to $TARGET
+-    mv $DOWNLOAD_DIR/$ARTIFACT_ID* $TARGET
+-    chmod 644 $TARGET
++      NEW_FILE=`ls $DOWNLOAD_DIR/$ARTIFACT_ID* | tail -n1`
++
++      # when not yet deployed or a newer version is available
++      if [ ! -e "$TARGET" -o "$NEW_FILE" -nt "$TARGET" ]
++      then
++          echo --------
++          echo deploying $ARTIFACT to $TARGET
++          cp $DOWNLOAD_DIR/$ARTIFACT_ID* $TARGET
++          chmod 644 $TARGET
++      else
++          echo --------
++          echo no deploy needed, already latest version
++      fi
+   else
+-    echo --------
+-    echo no deploy needed, already latest version
++      echo Download failed. Aborting
++      exit 1
+   fi
+ fi
+ 
