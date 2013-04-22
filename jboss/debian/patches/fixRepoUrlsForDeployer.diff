@@ -15,7 +15,7 @@
  
  ARTIFACT=$1
  
-@@ -32,9 +40,9 @@
+@@ -32,13 +40,13 @@
  
  if [ `echo $VERSION | grep SNAPSHOT` ]
  then
@@ -27,6 +27,11 @@
  fi
  
  BASE_URL=http://nexus.colo.elex.be:8081/nexus/service/local/artifact/maven/redirect
+-URL="$BASE_URL?r=$REPO&g=$GROUP_ID&a=$ARTIFACT_ID&v=$VERSION&p=$TYPE"
++URL="$BASE_URL?r=$REPO&g=$GROUP_ID&a=$ARTIFACT_ID&v=$VERSION&e=$TYPE"
+ 
+ 
+ ACTION=`echo $0 | cut -d '-' -f 2`
 @@ -49,19 +57,25 @@
  else
    echo downloading $URL
