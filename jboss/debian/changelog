@@ -1,8 +1,16 @@
+jboss (6.1.0-Final-6.3) UNRELEASED; urgency=low
+
+  * added no changes. Jenkins borked the build and apt is now confused.
+  *
+
+ -- Peter Tillemans <pti@snamellit.com>  Mon, 22 Apr 2013 18:25:06 +0200
+
 jboss (6.1.0-Final-6.2) UNRELEASED; urgency=low
 
   * added a fix to improve search results for jboss-deploy
+  *
 
- -- Peter Tillemans <pti@snamellit.com>  Mon, 22 Apr 2013 17:36:14 +0200
+ -- Peter Tillemans <pti@snamellit.com>  Mon, 22 Apr 2013 18:25:06 +0200
 
 jboss (6.1.0-Final-6.1) UNRELEASED; urgency=low
 
