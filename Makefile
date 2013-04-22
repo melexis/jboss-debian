@@ -9,24 +9,6 @@ all: jboss/jar-versions.xml
 
 clean:
 
-	rm -rf $(DEST)/bin
-	rm -rf $(DEST)/client
-	rm -rf $(DEST)/common
-	rm -rf $(DEST)/docs
-	rm -rf $(DEST)/lib
-	rm -rf $(DEST)/server
-	rm -rf $(DEST)/copyright.txt
-	rm -rf $(DEST)/jar-versions.xml
-	rm -rf $(DEST)/LICENSE.txt
-	rm -rf $(DEST)/usr
-	rm -f  $(DEST)/Makefile
-
-	rm -f jboss_$(VERSION)*.build
-	rm -f jboss_$(VERSION)*.changes
-	rm -f jboss_$(VERSION)*.deb
-	rm -f jboss_$(VERSION)*.debian.tar.gz
-	rm -f jboss_$(VERSION)*.dsc
-
 	rm -rf tmp
 
 
@@ -44,7 +26,7 @@ jboss/jar-versions.xml: $(ORIG_TAR)
 
 $(ORIG_TAR): $(ZIP_FILE)
 	unzip -d tmp $(ZIP_FILE)
-	(cd tmp/jboss-6.1.0.Final; tar -czvf ../../$(ORIG_TAR) *)
+	(cd tmp/jboss-6.1.0.Final; tar -czf ../../$(ORIG_TAR) *)
 	rm -rf tmp
 
 $(ZIP_FILE):

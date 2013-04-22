@@ -24,7 +24,7 @@ Last-Update: <YYYY-MM-DD>
 
 --- jboss-6.1.0-Final.orig/server/default/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
 +++ jboss-6.1.0-Final/server/default/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
-@@ -61,12 +61,14 @@
+@@ -61,0 +61,0 @@
 
    <!-- deployers -->
    <bean name="WSDescriptorDeployer" class="org.jboss.webservices.integration.deployers.WSDescriptorDeployer">
