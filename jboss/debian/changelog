@@ -1,4 +1,11 @@
-jboss (6.1.0-Final-6.3) UNRELEASED; urgency=low
+jboss (6.1.0-Final-6.4) UNRELEASED; urgency=low
+
+  * added no changes. Jenkins borked the build and apt is now confused.
+  *
+
+ -- Peter Tillemans <pti@snamellit.com>  Mon, 22 Apr 2013 23:25:06 +0200
+
+boss (6.1.0-Final-6.3) UNRELEASED; urgency=low
 
   * added no changes. Jenkins borked the build and apt is now confused.
   *
