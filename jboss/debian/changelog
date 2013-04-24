@@ -1,3 +1,9 @@
+jboss (6.1.0-Final-6.5) UNRELEASED; urgency=low
+
+  * JBOSS-19: added -f option when copying artifact to overwrite existing one
+
+ -- Peter Tillemans <pti@snamellit.com>  Mon, 22 Apr 2013 23:25:06 +0200
+
 jboss (6.1.0-Final-6.4) UNRELEASED; urgency=low
 
   * added no changes. Jenkins borked the build and apt is now confused.
