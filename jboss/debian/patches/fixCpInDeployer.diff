@@ -1,0 +1,11 @@
+--- a/usr/bin/jboss-deploy
++++ b/usr/bin/jboss-deploy
+@@ -67,7 +67,7 @@
+       then
+           echo --------
+           echo deploying $ARTIFACT to $TARGET
+-          cp $DOWNLOAD_DIR/$ARTIFACT_ID* $TARGET
++          cp -f $DOWNLOAD_DIR/$ARTIFACT_ID* $TARGET
+           chmod 644 $TARGET
+       else
+           echo --------
