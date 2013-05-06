@@ -1,2 +1,4 @@
 add_deployer.diff
 add_makefile.diff
+java7_fix_for_jbossws.diff
+fixRepoUrlsForDeployer.diff
