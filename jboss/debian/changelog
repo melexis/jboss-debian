@@ -1,3 +1,9 @@
+jboss (6.1.0-Final-6.7) UNRELEASED; urgency=low
+
+  * JBOSS-20: updated jboss log dir
+
+ -- Peter Tillemans <pti@snamellit.com>  Mon, 22 Apr 2013 23:25:06 +0200
+
 jboss (6.1.0-Final-6.6) UNRELEASED; urgency=low
 
   * JBOSS-19: added jboss.server.log.dir to the default script
