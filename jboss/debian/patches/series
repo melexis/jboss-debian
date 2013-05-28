@@ -2,6 +2,5 @@ add_deployer.diff
 add_makefile.diff
 java7_fix_for_jbossws.diff
 fixRepoUrlsForDeployer.diff
-setLogDir.diff
 fixCpInDeployer.diff
 clean_then_deploy.diff
