@@ -13,6 +13,7 @@ clean:
 
 
 	(cd jboss; debuild clean)
+	find jboss -mindepth 1 -maxdepth 2 ! -name debian -exec rm -rf {} \;
 	true
 
 dist-clean: clean
