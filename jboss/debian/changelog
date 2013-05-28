@@ -1,10 +1,11 @@
-jboss (6.1.0-Final-6.9) UNRELEASED; urgency=low
+jboss (6.1.0-Final-6.10) UNRELEASED; urgency=low
 
   * JBOSS-20: updated jboss log dir
   * JBOSS-20: fixed a typo in the location
   * JBOSS-20: upload only the latest file to avoid cp errors
+  * JBOSS-20: readded dissappeared patch
 
- -- Peter Tillemans <pti@snamellit.com>  Mon, 27 May 2013 18:15:28 +0200
+ -- Peter Tillemans <pti@snamellit.com>  Tue, 28 May 2013 11:31:47 +0200
 
 jboss (6.1.0-Final-6.6) UNRELEASED; urgency=low
 
