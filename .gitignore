@@ -8,5 +8,9 @@ jboss/docs
 jboss/jar-versions.xml
 jboss/lib
 jboss/server
+jboss/.pc
+jboss/Makefile
+jboss/README.txt
+jboss/usr
 tmp
 jboss_*
