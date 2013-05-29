@@ -1,4 +1,4 @@
-jboss (6.1.0-Final-7.0) UNRELEASED; urgency=low
+jboss (6.1.0-Final-7.1) UNRELEASED; urgency=low
 
   * JBOSS-20: updated jboss log dir
   * JBOSS-20: fixed a typo in the location

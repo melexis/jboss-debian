@@ -14,7 +14,7 @@
            echo --------
            echo deploying $ARTIFACT to $TARGET
 -          cp -f $DOWNLOAD_DIR/$ARTIFACT_ID* $TARGET
-+          cp -f $DOWNLOAD_DIR/$NEW_FILE $TARGET
++          cp -f $NEW_FILE $TARGET
            chmod 644 $TARGET
        else
            echo --------
