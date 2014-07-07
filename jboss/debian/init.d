@@ -91,7 +91,7 @@ start_server() {
 	echo "`date`: Starting $DESC: $JBOSS_SERVER" >> $LOGFILE
 	log_progress_msg "(this will take $STARTTIME seconds) "
 	start-stop-daemon --start --quiet --chuid $DAEMONUSER  \
-		--exec $JBOSS_START --pidfile $PIDFILE --make-pidfile -- -c $JBOSS_SERVER >> $LOGFILE 2>&1 &
+		--exec $JBOSS_START --pidfile $PIDFILE --make-pidfile -- -c $JBOSS_SERVER $JBOSS_OPTS >> $LOGFILE 2>&1 &
 	sleep $STARTTIME
 	if running ; then
 		log_success_msg "- successfully started"

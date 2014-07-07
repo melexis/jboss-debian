@@ -19,5 +19,15 @@ export JAVA_OPTS
 # Possible values are "minimal", "default", "web", "standard" and "all".
 JBOSS_SERVER="default"
 
+# Options to pass to the jboss server
+# e.g. "-b 0.0.0.0" listen on all interfaces, usually a bad idea
+#      "-l log4j"  select between log4j and jdk logging
+#      "-P <some url>" load system properties from the url
+#      "-g <partition>" select the cluster partition to register to.
+# of course you can add multiple option by simply appending them
+# separated with a space
+JBOSS_OPTS=""
+
+
 # Uncomment to enable the JBoss Application Server 5
 RUN="yes"
