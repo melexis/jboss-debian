@@ -1,11 +1,15 @@
-jboss (6.1.0-Final-7.1) UNRELEASED; urgency=low
+jboss (6.1.0-Final-7.2) UNRELEASED; urgency=low
 
+  [ Peter Tillemans ]
   * JBOSS-20: updated jboss log dir
   * JBOSS-20: fixed a typo in the location
   * JBOSS-20: upload only the latest file to avoid cp errors
   * JBOSS-20: readded dissappeared patch
 
- -- Peter Tillemans <pti@snamellit.com>  Tue, 28 May 2013 11:31:47 +0200
+  [ Vagrant User ]
+  * Fixed build for wheezy
+
+ -- Vagrant User <vagrant@wheezy64>  Wed, 23 Jul 2014 09:44:20 +0000
 
 jboss (6.1.0-Final-6.6) UNRELEASED; urgency=low
 

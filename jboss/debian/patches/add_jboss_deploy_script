@@ -1,0 +1,103 @@
+Description: <short summary of the patch>
+ TODO: Put a short summary on the line above and replace this paragraph
+ with a longer explanation of this change. Complete the meta-information
+ with other relevant fields (see below for details). To make it easier, the
+ information below has been extracted from the changelog. Adjust it or drop
+ it.
+ .
+ jboss (6.1.0-Final-7.2) UNRELEASED; urgency=low
+ .
+   [ Peter Tillemans ]
+   * JBOSS-20: updated jboss log dir
+   * JBOSS-20: fixed a typo in the location
+   * JBOSS-20: upload only the latest file to avoid cp errors
+   * JBOSS-20: readded dissappeared patch
+ .
+   [ Vagrant User ]
+   * Fixed build for wheezy
+Author: Vagrant User <vagrant@wheezy64>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- jboss-6.1.0-Final.orig/usr/bin/jboss-deploy
++++ jboss-6.1.0-Final/usr/bin/jboss-deploy
+@@ -5,14 +5,6 @@ JBOSS_HOME=/var/lib/jboss/server/default
+ DEPLOY_DIR=$JBOSS_HOME/deploy
+ DOWNLOAD_DIR=$JBOSS_HOME/tmp
+ 
+-WGET_MINOR_VERSION=`wget -V | head -1 | cut -b 12-13`
+-if [ $WGET_MINOR_VERSION -lt 12 ]
+-then
+-  OPT_FN="--use-server-file-name"
+-else
+-  OPT_FN="--trust-server-names"
+-fi
+-
+ 
+ ARTIFACT=$1
+ 
+@@ -40,13 +32,13 @@ echo --------
+ 
+ if [ `echo $VERSION | grep SNAPSHOT` ]
+ then
+-  REPO=public-snapshots
++  REPO=snapshots
+ else
+-  REPO=public
++  REPO=releases
+ fi
+ 
+ BASE_URL=http://nexus.colo.elex.be:8081/nexus/service/local/artifact/maven/redirect
+-URL="$BASE_URL?r=$REPO&g=$GROUP_ID&a=$ARTIFACT_ID&v=$VERSION&e=$TYPE"
++URL="$BASE_URL?r=$REPO&g=$GROUP_ID&a=$ARTIFACT_ID&v=$VERSION&p=$TYPE"
+ 
+ 
+ ACTION=`echo $0 | cut -d '-' -f 2`
+@@ -57,25 +49,19 @@ then
+ else
+   echo downloading $URL
+   echo --------
+-  echo wget -nv -N $OPT_FN --max-redirect=2 -P $DOWNLOAD_DIR $URL
+-  if wget -nv -N $OPT_FN --max-redirect=2 -P $DOWNLOAD_DIR $URL
+-  then
+-      NEW_FILE=`ls $DOWNLOAD_DIR/$ARTIFACT_ID* | tail -n1`
++  wget -nv -N --use-server-file-name --max-redirect=2 -P $DOWNLOAD_DIR $URL
++  NEW_FILE=`ls $DOWNLOAD_DIR/$ARTIFACT_ID* | tail -n1`
+ 
+-      # when not yet deployed or a newer version is available
+-      if [ ! -e "$TARGET" -o "$NEW_FILE" -nt "$TARGET" ]
+-      then
+-          echo --------
+-          echo deploying $ARTIFACT to $TARGET
+-          cp -f $NEW_FILE $TARGET
+-          chmod 644 $TARGET
+-      else
+-          echo --------
+-          echo no deploy needed, already latest version
+-      fi
++  # when not yet deployed or a newer version is available
++  if [ ! -e $TARGET -o $NEW_FILE -nt $TARGET ]
++  then
++    echo --------
++    echo deploying $ARTIFACT to $TARGET
++    mv $DOWNLOAD_DIR/$ARTIFACT_ID* $TARGET
++    chmod 644 $TARGET
+   else
+-      echo Download failed. Aborting
+-      exit 1
++    echo --------
++    echo no deploy needed, already latest version
+   fi
+ fi
+ 

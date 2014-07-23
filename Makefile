@@ -5,7 +5,7 @@ ZIP_FILE=jboss-as-distribution-6.1.0.Final.zip
 DEST=jboss
 
 all: jboss/jar-versions.xml
-	(cd jboss; debuild -us -uc)
+	#(cd jboss; debuild -us -uc)
 
 clean:
 
@@ -23,7 +23,7 @@ dist-clean: clean
 
 jboss/jar-versions.xml: $(ORIG_TAR)
 	tar -xzvf $(ORIG_TAR) -C $(DEST)
-
+	true
 
 $(ORIG_TAR): $(ZIP_FILE)
 	unzip -d tmp $(ZIP_FILE)
