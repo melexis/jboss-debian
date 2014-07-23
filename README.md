@@ -111,6 +111,11 @@ add the files and refresh the patch.
     ... edit ... edit ...
     $ quilt refresh
 
+For more info see [Using Quilt][using_quilt] on the Debian wiki.
+
+[using_quilt]: https://wiki.debian.org/UsingQuilt "Using Quilt"
+
+
 # Maintenance tips
 
 - run *debchange -i* before committing
