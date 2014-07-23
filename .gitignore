@@ -14,3 +14,5 @@ jboss/README.txt
 jboss/usr
 tmp
 jboss_*
+.vagrant
+jboss/jboss-build-deps_1.0_all.deb
