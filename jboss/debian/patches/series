@@ -4,5 +4,4 @@ java7_fix_for_jbossws.diff
 fixRepoUrlsForDeployer.diff
 fixCpInDeployer.diff
 clean_then_deploy.diff
-add_jboss_deploy_script
 remove_root_war.diff
