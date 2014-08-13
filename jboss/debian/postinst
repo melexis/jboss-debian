@@ -23,6 +23,7 @@ case "$1" in
     adduser --system --home /var/lib/jboss jboss
     chown -R jboss /var/lib/jboss
     chown -R jboss /var/log/jboss
+    find /var/lib/jboss/server/ -name ROOT.war -exec rm -rf {} \; -prune
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
