@@ -2,7 +2,7 @@ Source: jboss
 Section: unknown
 Priority: extra
 Maintainer: Peter Tillemans <pti@snamellit.com>
-Build-Depends: debhelper (>= 7.0.15~), libaio1
+Build-Depends: debhelper (>= 7.0.15~), libaio1, quilt
 Standards-Version: 3.9.1
 Homepage: http://www.jboss.org/jbossas/downloads/
 

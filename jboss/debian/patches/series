@@ -5,3 +5,4 @@ fixRepoUrlsForDeployer.diff
 fixCpInDeployer.diff
 clean_then_deploy.diff
 remove_root_war.diff
+support_exploded_deploys.diff

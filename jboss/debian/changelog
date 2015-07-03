@@ -1,4 +1,4 @@
-jboss (6.1.0-Final-8) UNRELEASED; urgency=low
+jboss (6.1.0-Final-8.1) UNRELEASED; urgency=low
 
   [ Peter Tillemans ]
   * JBOSS-20: updated jboss log dir
@@ -9,8 +9,9 @@ jboss (6.1.0-Final-8) UNRELEASED; urgency=low
   [ Vagrant User ]
   * Fixed build for wheezy
   * JBOSS-49: refactored and cleaned build
+  * JBOSS-81: add -x option to jboss-deploy
 
- -- Vagrant User <vagrant@wheezy64>  Wed, 23 Jul 2014 16:30:51 +0000
+ -- Vagrant User <vagrant@wheezy-amd64.vagrantup.com>  Fri, 03 Jul 2015 15:56:30 +0000
 
 jboss (6.1.0-Final-6.6) UNRELEASED; urgency=low
 

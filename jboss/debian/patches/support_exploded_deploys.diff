@@ -1,0 +1,57 @@
+--- a/usr/bin/jboss-deploy
++++ b/usr/bin/jboss-deploy
+@@ -4,6 +4,7 @@
+ JBOSS_HOME=/var/lib/jboss/server/default
+ DEPLOY_DIR=$JBOSS_HOME/deploy
+ DOWNLOAD_DIR=$JBOSS_HOME/tmp
++EXPLODED=0
+ 
+ WGET_MINOR_VERSION=`wget -V | head -1 | cut -b 12-13`
+ if [ $WGET_MINOR_VERSION -lt 12 ]
+@@ -13,6 +14,18 @@
+   OPT_FN="--trust-server-names"
+ fi
+ 
++while getopts ":x" opt; do
++  case $opt in
++    x)
++      echo "Deploy exploded!"
++      EXPLODED=1
++      ;;
++    \?)
++      echo "Invalid option: -$OPTARG"
++      ;;
++  esac
++done
++shift $((OPTIND-1))
+ 
+ ARTIFACT=$1
+ 
+@@ -67,7 +80,26 @@
+       then
+           echo --------
+           echo deploying $ARTIFACT to $TARGET
+-          cp -f $NEW_FILE $TARGET
++          if [ "$EXPLODED" == "1" ]
++          then
++              mkdir "$NEW_FILE.dir"
++              cd "$NEW_FILE.dir"
++              jar -xvf "$NEW_FILE"
++              for war in *.war
++              do
++                  mkdir $war.dir
++                  cd $war.dir
++                  jar -tvf ../$war
++                  cd ..
++                  rm $war
++                  mv $war.dir $war
++              done
++              cd ..
++              rm -rf "$TARGET"
++              mv "$NEW_FILE.dir" "$TARGET"
++          else
++              cp -f $NEW_FILE $TARGET
++          fi
+           chmod 644 $TARGET
+       else
+           echo --------

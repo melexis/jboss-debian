@@ -23,7 +23,7 @@ yes | mk-build-deps --install debian/control
 SCRIPT
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "wheezy"
-  config.vm.box_url = "http://hudson2-test.colo.elex.be/wheezy64.box"
+  config.vm.box = "deb/wheezy-amd64"
+#  config.vm.box_url = "http://hudson2-test.colo.elex.be/wheezy64.box"
   config.vm.provision :shell, :inline => $script
 end
