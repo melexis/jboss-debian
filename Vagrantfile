@@ -7,8 +7,11 @@ $script = <<SCRIPT
 # to the repo over the VPN connection and it is
 # locally upgraded for one reason or another.
 sed -i.bak '/.*aptmaster.*/d' /etc/apt/sources.list
-sed -i.bak '/.*debian.tryphon.eu.*/d' /etc/apt/sources.list
 
+# dunno where this thing comes from but its key is unknown
+# we don't need it : raus damit.
+sed -i.bak '/.*debian.tryphon.eu.*/d' /etc/apt/sources.list
+ex
 # install essential tools
 apt-get update
 apt-get -y --force-yes install devscripts build-essential fakeroot debhelper gnupg dh-make
